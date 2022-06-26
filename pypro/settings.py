@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 
+from decouple import config # Importa a função 'config' da biblioteca 'decouple'.
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -23,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-2_3pv*_n^ibr7t(vtk4kbigb_rd-_h4^yf(*s1h+p@t%1s=b88'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', cast=bool) # Busca os valores de uma variável de ambiente chamada 'DEBUG' convertendo o resultado em booleano.
 
 ALLOWED_HOSTS = ['*']
 
